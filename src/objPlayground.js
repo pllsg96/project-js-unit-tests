@@ -36,23 +36,35 @@
 
 const calculator = (number1, number2) => {
   const maths = {
-    sum: 0,
-    mult: 0,
-    div: 0,
-    sub: 0,
+    sum: '',
+    mult: '',
+    div: '',
+    sub: '',
+    
   };
 
   maths.sum = number1 + number2;
   maths.mult = number1 * number2;
-  maths.div = number1 / number2;
+  maths.div = Math.floor(number1 / number2);
   maths.sub = number1 - number2;
 
   return maths;
 };
  
-console.log(calculator(2, 2));
+// console.log(Object.keys(calculator(2, 2)));
+
+const theKeys = (object) => Object.keys(object);
+const theValues = (object) => Object.values(object);
+const theEntries = (object) => Object.entries(object);
 
 const arrayGenerator = (type, object) => {
+  if (type === 'keys') return theKeys(object);
+  if (type === 'values') return theValues(object);
+  if (type === 'entries') return theEntries(object);
 };
+
+console.log(arrayGenerator('keys', calculator(2, 2)));
+console.log(arrayGenerator('values', calculator(2, 2)));
+console.log(arrayGenerator('entries', calculator(2, 2)));
 
 module.exports = { calculator, arrayGenerator };
