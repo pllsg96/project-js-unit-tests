@@ -99,8 +99,11 @@ const createMenu = (objeto) => {
       const things = objeto;
       return things;
     },
+    consuption: [],
   };
   return menu;
 };
+
+console.log(createMenu('x'));
 
 module.exports = createMenu;
